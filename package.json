@@ -1,0 +1,24 @@
+{
+    "name": "com.abhimanyus1997.pir",
+    "version": "1.0.0",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "displayName": "PIR Control Board",
+    "dependencies": {
+        "cordova-android": "^7.1.4",
+        "cordova-browser": "6.0.0",
+        "cordova-plugin-splashscreen": "^5.0.2",
+        "cordova-plugin-statusbar": "^2.4.2"
+    },
+    "cordova": {
+        "platforms": [
+            "browser",
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-splashscreen": {}
+        }
+    }
+}

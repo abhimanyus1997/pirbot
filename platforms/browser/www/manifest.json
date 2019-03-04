@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "PIR Control Board",
+  "short_name": "PIR Control Board",
+  "version": "com.abhimanyus1997.pir",
+  "description": "Pipe Inspection Robot controller for Android Platform",
+  "author": "Abhimanyu Singh",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#2196f3"
+}
