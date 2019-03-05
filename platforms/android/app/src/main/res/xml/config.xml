@@ -8,6 +8,10 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>PIR Control Board</name>
     <description>
         Pipe Inspection Robot controller for Android Platform
@@ -21,6 +25,9 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="https://ajax.googleapis.com//*" launch-external="yes" />
+    <allow-navigation href="https://cdnjs.cloudflare.com/*" launch-external="yes" />
+    <allow-navigation href="https://maxcdn.bootstrapcdn.com/*" launch-external="yes" />
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="res/icon/android/drawable-mdpi-icon.png" />

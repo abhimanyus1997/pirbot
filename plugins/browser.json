@@ -12,6 +12,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "com.abhimanyus1997.pir"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.abhimanyus1997.pir"
     }
   },
   "dependent_plugins": {}

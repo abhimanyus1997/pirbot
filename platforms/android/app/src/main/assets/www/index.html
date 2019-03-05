@@ -1,68 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *">
-
-    <!-- Required meta tags-->
+    <title>Raspberry Pi Control Panel</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <meta name="viewport" content="minimal-ui,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
+    width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar -->
-    <meta name="theme-color" content="#2196f3">
-    <!-- Your app title -->
-    <title>My App</title>
+    <!-- <meta name="theme-color" content="#2196f3"> -->
+    <link rel="icon" href="res/favicon.png" type="image/png">
+
     <!-- Path to Framework7 Library CSS -->
-    <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7.min.css"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="lib/popper.js/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- Path to your custom app styles-->
     <link href="css/style.css">
 </head>
 
 <body>
-    <div id="app">
-        <!-- Statusbar overlay -->
-        <div class="statusbar"></div>
-    
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Initial Page, "data-name" contains page name -->
-            <div data-name="home" class="page">
-    
-                <!-- Top Navbar -->
-                <div class="navbar">
-                    <div class="navbar-inner">
-                    <div class="title">Awesome App</div>
-                    </div>
-                </div>
-        
-                <!-- Toolbar -->
-                <div class="toolbar">
-                    <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                    </div>
-                </div>
-        
-                <!-- Scrollable page content -->
-                <div class="page-content">
-                    <p>Page content goes here</p>
-                    <!-- Link to another page -->
-                    <a href="/about/" data-view=".page-content">About app</a>
-                </div>
+     <div>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+            <a class="navbar-brand" href="#">PIR Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}" id="pir-home">Panel <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('sensor_data') }}">Sensors</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Performance
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Raspberry Pi</a>
+                            <a class="dropdown-item" href="#">ESP32</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Other</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('myconsole') }}">Console</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Username" aria-label="Username">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="pir-searchBtn">Login</button>
+                </form>
             </div>
-        </div>
+        </nav>
+
     </div>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
     <script type="text/javascript" src="js/my-app.js"></script>
 </body>
 
