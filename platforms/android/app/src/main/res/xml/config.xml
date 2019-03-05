@@ -12,6 +12,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="CordovaMqTTPlugin">
+        <param name="android-package" value="com.arcoirislabs.plugin.mqtt.CordovaMqTTPlugin" />
+    </feature>
     <name>PIR Control Board</name>
     <description>
         Pipe Inspection Robot controller for Android Platform
@@ -58,5 +61,5 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#5792f2" />
+    <preference name="StatusBarBackgroundColor" value="#263238" />
 </widget>

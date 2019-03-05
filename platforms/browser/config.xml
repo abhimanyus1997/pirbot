@@ -13,8 +13,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="https://ajax.googleapis.com//*" />
-    <allow-navigation href="https://cdnjs.cloudflare.com/*" />
-    <allow-navigation href="https://maxcdn.bootstrapcdn.com/*" />
+    <allow-navigation href="https://ajax.googleapis.com//*" launch-external="yes" />
+    <allow-navigation href="https://cdnjs.cloudflare.com/*" launch-external="yes" />
+    <allow-navigation href="https://maxcdn.bootstrapcdn.com/*" launch-external="yes" />
     <preference name="DisallowOverscroll" value="true" />
 </widget>

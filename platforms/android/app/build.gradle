@@ -265,6 +265,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
+    compile "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

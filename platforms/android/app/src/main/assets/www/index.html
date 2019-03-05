@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Raspberry Pi Control Panel</title>
     <meta charset="utf-8">
@@ -28,51 +29,57 @@
 </head>
 
 <body>
-     <div>
+    <div>
         <!--Navigation Bar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-            <a class="navbar-brand" href="#">PIR Dashboard</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <nav class="navbar navbar-dark" style="background-color: #37474F;">
+            <a class="navbar-brand" href="#" style="font-family:'happyFont',monospace">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('dashboard') }}" id="pir-home">Panel <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('sensor_data') }}">Sensors</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Performance
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Raspberry Pi</a>
-                            <a class="dropdown-item" href="#">ESP32</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Other</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('myconsole') }}">Console</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Username" aria-label="Username">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="pir-searchBtn">Login</button>
-                </form>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#myModal">MQTT Client</a>
+                    <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
+                    <a class="nav-item nav-link" href="#">About</a>
+                </div>
             </div>
         </nav>
 
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
-    <script type="text/javascript" src="js/my-app.js"></script>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                       <p class="modal-title text-left">MQTT Client Window</p>
+                    </div>
+                    <div class="modal-body">
+                        <p>MQTT transmit dialogue.
+                            <div class="column">
+                                <div class="col"><button type="button" class="btn btn-success btn-sm" id="mqtt_start">Connect
+                                        MQTT</button></div>
+                                <div class="col"><button type="button" class="btn btn-primary btn-sm" id="mqtt_send">Transmit
+                                        Data</button></div>
+                                <div class="col"><button type="button" class="btn btn-warning btn-sm" id="mqtt_stop">Disconnect
+                                        MQTT</button></div>
+                            </div>
+                       </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--     <script type="text/javascript" src="cordova.js"></script> -->
+            <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
+            <script type="text/javascript" src="js/my-app.js"></script>
+            <script type="text/javascript" src="js/mqtt.js"></script>
 </body>
 
 </html>

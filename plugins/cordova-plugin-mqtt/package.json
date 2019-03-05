@@ -1,0 +1,56 @@
+{
+  "_from": "cordova-plugin-mqtt",
+  "_id": "cordova-plugin-mqtt@0.3.8",
+  "_inBundle": false,
+  "_integrity": "sha1-Lw4HXgtngTYYv8tLkTrZwJGMVOU=",
+  "_location": "/cordova-plugin-mqtt",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-mqtt",
+    "name": "cordova-plugin-mqtt",
+    "escapedName": "cordova-plugin-mqtt",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-mqtt/-/cordova-plugin-mqtt-0.3.8.tgz",
+  "_shasum": "2f0e075e0b67813618bfcb4b913ad9c0918c54e5",
+  "_spec": "cordova-plugin-mqtt",
+  "_where": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir",
+  "author": {
+    "name": "Arcoiris Labs",
+    "email": "amey@arcoirislabs.com"
+  },
+  "bugs": {
+    "url": "https://github.com/arcoirislabs/mqtt-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-mqtt",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova plugin for MQTT (Message Queuing Telemetry Transport) protocol. Supports 3.x protocol. More platforms to be added in coming future.",
+  "homepage": "https://github.com/arcoirislabs/mqtt-cordova#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "mqtt",
+    "arcoirislabs"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-mqtt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcoirislabs/mqtt-cordova.git"
+  },
+  "version": "0.3.8"
+}

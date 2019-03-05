@@ -22,5 +22,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-mqtt": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-mqtt@~0.3.8"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

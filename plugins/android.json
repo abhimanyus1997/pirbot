@@ -15,6 +15,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.abhimanyus1997.pir"
+    },
+    "cordova-plugin-mqtt": {
+      "PACKAGE_NAME": "com.abhimanyus1997.pir"
     }
   },
   "dependent_plugins": {}

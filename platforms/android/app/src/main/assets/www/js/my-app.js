@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    //StatusBar.show();
+});
+
 // // Initialize app
 // var myApp = new Framework7();
   
