@@ -3,39 +3,100 @@
     
 -->
 <html>
-    <head>
-        
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <title>Mqtt Test</title>
-    </head>
-    <body>
-        <div>
-            <h4>Connect</h4>
-            <p>P.S:- "mqtt://" protocol is not supported by this plugin. Instead use "tcp://" which works with any broker.</p>
-            <label for="url">Url:&nbsp;</label><input type="text" id="url" name="url"><br>
-            <label for="port">Port:&nbsp;</label><input type="number" id="port" name="port"><br>
-            <label for="clientid">Client id</label><input type="text" id="clientId" name="clientid"><br>
-            <button id="connect">Connect</button><button id="disconnect" style="display:none">Disconnect</button>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <meta name="viewport" content="minimal-ui,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
+    width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <!-- <meta name="theme-color" content="#2196f3"> -->
+    <link rel="icon" href="res/favicon.png" type="image/png">
+
+    <!-- Path to Framework7 Library CSS -->
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7.min.css"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="lib/popper.js/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Path to your custom app styles-->
+    <link href="css/style.css">
+</head>
+
+<body>
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-dark" style="background-color: #37474F;">
+        <a class="navbar-brand" href="#" style="font-family:'happyFont',monospace">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#myModal">Raspberry Pi Client</a>
+                <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
+                <a class="nav-item nav-link" href="#">About</a>
+            </div>
         </div>
-        <div>
-            <h4>Subscribe</h4>
-            <label for="topic_sub">Topic:&nbsp;</label><input type="text" id="topic_sub" name="topic_sub"><br>
-            <button id="subscribe">Subscribe</button><button id="unsubscribe" style="display:none">Unsubscribe</button>
+    </nav>
+
+
+
+    <fieldset class="border m-2 p-3">
+        <legend class="w-auto">Connect</legend>
+        <div class="container">
+            <p><b>P.S:-</b> <code>mqtt://</code> protocol is not supported by this plugin. Instead use <code>tcp://</code>
+                which works with any
+                broker.</p>
+            <div class="form-group"><label for="url">Url:&nbsp;</label><input type="text" id="url" name="url" class="form-control"
+                    placeholder="IP address of MQTT Broker/Server" value="tcp://192.168.137.1"></div><br>
+            <div class="form-group"><label for="port">Port:&nbsp;</label><input type="number" id="port" name="port"
+                    class="form-control" placeholder="Default Port value is 1883"></div><br>
+            <div class="form-group"><label for="clientid">Client id</label><input type="text" id="clientId" name="clientid"
+                    class="form-control" placeholder="Your Device's username"></div><br>
+            <div class="form-group"><button id="connect" class="btn btn-success">Connect</button><button id="disconnect"
+                    style="display:none" class="btn btn-danger">Disconnect</button></div>
         </div>
-        <div>
-            <h4>Publish</h4>
-            <label for="topic_pub">Topic:&nbsp;</label><input type="text" id="topic_pub" name="topic_pub"><br>
-            <label for="payload">Payload:&nbsp;</label><input type="text" id="payload" name="payload">
-            <button id="publish">Publish</button>
+    </fieldset>
+    <fieldset class="border m-2 p-3">
+        <legend class="w-auto">Subscribe</legend>
+        <div class="container">
+            <div class="form-group"><label for="topic_sub">Topic:&nbsp;</label><input type="text" id="topic_sub" name="topic_sub"
+                    class="form-control"><br></div>
+            <div class="form-group"><button id="subscribe" type="button" class="btn btn-info">Subscribe</button><button
+                    id="unsubscribe" style="display:none" type="button" class="btn btn-warning">Unsubscribe</button></div>
         </div>
+    </fieldset>
+    <fieldset class="border m-2 p-3">
+        <legend class="w-auto">Publish</legend>
         <div>
+            <div class="form-group"><label for="topic_pub">Topic:&nbsp;</label><input type="text" id="topic_pub" name="topic_pub"
+                    class="form-control"><br></div>
+            <div class="form-group"><label for="payload">Payload:&nbsp;</label><input type="text" id="payload" name="payload"
+                    class="form-control"></div>
+            <div class="form-group"><button id="publish" class="btn btn-secondary">Publish</button></div>
+        </div>
+    </fieldset>
+
+
+    <div class="border rounded-lg m-4 p-2">
+        <div class="page-header">
             <h4>Activity Log</h4>
             <div id="activity"></div>
-        </div>    
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/mqtt.js"></script>
+</body>
+
 </html>
