@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Raspberry Pi Control Panel</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <meta name="viewport" content="minimal-ui,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
+    width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <!-- <meta name="theme-color" content="#2196f3"> -->
+    <link rel="icon" href="res/favicon.png" type="image/png">
+
+    <!-- Path to Framework7 Library CSS -->
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7.min.css"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="lib/popper.js/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Path to your custom app styles-->
+    <link href="css/style.css">
+</head>
+<body>
+        <body>
+                <div>
+                    <!--Navigation Bar-->
+                    <nav class="navbar navbar-dark" style="background-color: #37474F;">
+                        <a class="navbar-brand" href="#" style="font-family:'happyFont',monospace">Dashboard</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link" href="#">Raspberry Pi Client</a>
+                                <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
+                                <a class="nav-item nav-link" href="image.html">Camera</a>
+                            </div>
+                        </div>
+                    </nav>
+
+    
+    <div class="text-center">
+        <h2>Video Streaming</h2>
+        <img src="" id="streamImg" class="img-fluid rounded mx-auto w-80 h-80" alt="Video Player" style="width:100%" alt="No Signal"></img>
+    </div>
+
+    <fieldset class="border m-2 p-3">
+            <legend class="w-auto">Streaming Options</legend>
+            <div class="container">
+                <div class="form-group"><label for="hostip">Server Hostname/IP:&nbsp;</label><input type="text" id="hostip" placeholder="Enter IP Address of Raspberry pi" name="hostip" class="form-control" value="rpi"><br></div>
+                <div class="form-group"><label for="cam_port">Streaming Port:&nbsp;</label><input type="text" id="cam_port" placeholder="Enter Video Streaming Port" name="cam_port" class="form-control" value="9090"><br></div>
+                <div class="form-group"><button id="stream" type="button" class="btn btn-primary" onclick="streaming()">Stream</button>
+            </div>
+    </fieldset>
+
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
+
+</body>
+</html>
