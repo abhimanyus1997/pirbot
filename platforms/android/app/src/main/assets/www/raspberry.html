@@ -4,7 +4,7 @@
 <head>
     <title>Raspberry Pi Control Panel</title>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' https://fonts.googleapis.com 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
     <meta name="viewport" content="minimal-ui,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
     width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -24,15 +24,26 @@
     <script src="lib/popper.js/dist/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <!--Gauge.js for Making Gauges-->
+    <script src="js/dist/gauge.min.js"></script>
     <!-- Path to your custom app styles-->
     <link href="css/style.css">
+    
+    <script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src="js/mygauge.js"></script>
+    <link href="css/gauge.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Major+Mono+Display');
+    </style>
+
+
 </head>
 
-<body>
+<body onload="onLoad()">
     <div>
         <!--Navigation Bar-->
         <nav class="navbar navbar-dark" style="background-color: #37474F;">
-            <a class="navbar-brand" href="#" style="font-family:'happyFont',monospace">Dashboard</a>
+            <a class="navbar-brand" href="#" style="font-family: 'Major Mono Display', monospace;">Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
@@ -40,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="raspberry.html" >Raspberry Pi Client</a>
+                    <a class="nav-item nav-link" href="raspberry.html">Raspberry Pi Client</a>
                     <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
                     <a class="nav-item nav-link" href="image.html">Camera</a>
                     <a class="nav-item nav-link" href="about.html">About Us</a>
@@ -48,11 +59,26 @@
             </div>
         </nav>
 
+        <div class="border border-success rounded-3 m-3 p-2 w-80">
+            <h3>Connection</h3>
+            <input type="text" id="ip_txt" placeholder="Broker IP/Hostname" value="enchantress" class="form-control w-75 m-1"
+                required>
+            <input type="number" id="port_txt" placeholder="Broker MQTT Port" value="1883" class="form-control w-25 m-1"
+                required>
+            <input type="text" id="client_txt" placeholder="Username/clientID" value="" class="form-control w-50 m-1">
+            <button type="button" class="btn btn-success" id="connect_btn">Connect</button>
+            <button type="button" class="btn btn-warning" id="disconnect_btn" style="display:none">Disconnect</button>
+        </div>
+        
+        <div class="card mw-25">
+                <div class="card-header">CPU Temp</div>
+                <div class="card-body"><canvas id="foo"></canvas></div> 
+                <div class="card-footer" id="cpu_temp_txt"></div>
+         </div>
 
+         <div class="border border-success rounded-3 m-3 p-2 w-80" id="activity"></div>
 
-
-        <!--     <script type="text/javascript" src="cordova.js"></script> -->
-        <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/my-app.js"></script>
         <script type="text/javascript" src="js/raspberry.js"></script>
 </body>

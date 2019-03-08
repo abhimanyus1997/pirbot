@@ -4,7 +4,9 @@
 <head>
     <title>Raspberry Pi Control Panel</title>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' https://fonts.googleapis.com 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <!-- Allow everything but only from the same origin and fonts.googleapis.com -->
+<!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self' fonts.googleapis.com"> -->
     <meta name="viewport" content="minimal-ui,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
     width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -26,13 +28,16 @@
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- Path to your custom app styles-->
     <link href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Major+Mono+Display');
+    </style>
 </head>
 
 <body>
     <div>
         <!--Navigation Bar-->
         <nav class="navbar navbar-dark" style="background-color: #37474F;">
-            <a class="navbar-brand" href="#" style="font-family:'happyFont',monospace">Dashboard</a>
+            <a class="navbar-brand" href="#" style="font-family: 'Major Mono Display', monospace;">Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
@@ -49,7 +54,7 @@
         </nav>
 
 
-        <!--     <script type="text/javascript" src="cordova.js"></script> -->
+        <script type="text/javascript" src="cordova.js"></script>
         <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
         <script type="text/javascript" src="js/my-app.js"></script>
         <script type="text/javascript" src="js/mqtt.js"></script>

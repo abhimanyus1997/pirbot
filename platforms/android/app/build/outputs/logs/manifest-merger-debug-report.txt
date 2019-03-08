@@ -9,19 +9,19 @@ INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\Andr
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 	package
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:98-130
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:100-132
 		INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:72-97
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:74-99
 		INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml
 	android:hardwareAccelerated
 		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:131-189
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:133-191
 	android:versionCode
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:46-71
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:46-73
 		INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml
 supports-screens
