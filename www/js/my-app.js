@@ -1,10 +1,19 @@
-$(document).ready(function(){
-    //StatusBar.show();
+$(document).ready(function () {
+    var slider = document.getElementById("customRange1");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+        $('#customRange1').tooltip({ title: this.value });
+        $('#customRange1').tooltip('update');
+    };
 });
 
 // // Initialize app
 // var myApp = new Framework7();
-  
+
 // // If we need to use custom DOM library, let's save it to $$ variable:
 // var $$ = Dom7;
 

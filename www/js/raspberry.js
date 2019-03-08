@@ -46,7 +46,7 @@ var app = {
           alert("--> Error: something is wrong,\n " + JSON.stringify(e) + "<br>");
           document.getElementById("connect_btn").style.display = "block";
           document.getElementById("disconnect_btn").style.display = "none";
-          alert("err!! something is wrong. check the console")
+          alert("err!! something is wrong. check the console");
           console.log(e);
         },
         onConnectionLost: function () {
@@ -60,7 +60,7 @@ var app = {
       //PUBLISHING DATA ON SUCCESSFUL CONNECTION to "test" topic
       function sendmydata() {
         if (!connect) {
-          alert("First establish connection then try to publish")
+          alert("First establish connection then try to publish");
         } else {
           cordova.plugins.CordovaMqTTPlugin.publish({
             topic: "test",
@@ -71,7 +71,7 @@ var app = {
               alert("Success: you have published to the topic, " + "test" + "<br>");
             },
             error: function (e) {
-              alert("--> Error: something is wrong, " + e + "<br>")
+              alert("--> Error: something is wrong, " + e + "<br>");
               console.log(e);
             }
           });
@@ -97,11 +97,18 @@ var app = {
           generateGradient: true,
           highDpiSupport: true,     // High resolution support
       };
-      var target = document.getElementById('foo'); // your canvas element
+      
+      var target = document.getElementById('cpu_temp_canvas'); // your canvas element
       var gauge = new Gauge(target).setOptions(opts); // create gauge!
       gauge.maxValue = 50 ; // set max gauge value
       gauge.setMinValue(20); // set min value
       gauge.set(20); // set actual value
+
+      var gauge2 = new Gauge(document.getElementById('cpu_usage_canvas')).setOptions(opts); // create gauge!
+      gauge2.maxValue = 100 ; // set max gauge value
+      gauge2.setMinValue(0); // set min value
+      gauge2.set(0); // set actual value
+      
 
         alert("Subscribing");
         if (!connect) {
@@ -118,14 +125,17 @@ var app = {
               cordova.plugins.CordovaMqTTPlugin.listen("rpi/data", function (payload, params, topic, topic_pattern) {
                 //params will be an empty object if topic pattern is NOT used. 
                 console.log("Receiving Payload Value: " + payload);
-                document.getElementById("activity").innerHTML =  payload;
-                document.getElementById("cpu_temp_txt").innerHTML =  payload+" &#8451;";
-                gauge.set(payload)
+                document.getElementById("activity").innerHTML =  "<h6>Streaming Data:</h6> <code> ["+payload+"] </code>";
+                var rpiData = payload.split(",");
+                document.getElementById("cpu_temp_txt").innerHTML =  rpiData[0]+" &#8451;";
+                document.getElementById("cpu_usage_txt").innerHTML =  rpiData[1]+" %";
+                gauge.set(rpiData[0]);
+                gauge2.set(rpiData[1]);
               });
             },
             error: function (e) {
               document.getElementById("activity").innerHTML += "--> Error: something is wrong when subscribing to this topic, " + e + "<br>";
-              alert("Receiving Failure")
+              alert("Receiving Failure");
               console.log(e);
             }
           });

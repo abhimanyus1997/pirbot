@@ -69,12 +69,20 @@
             <button type="button" class="btn btn-success" id="connect_btn">Connect</button>
             <button type="button" class="btn btn-warning" id="disconnect_btn" style="display:none">Disconnect</button>
         </div>
+
+        <div class="card-deck">
+                <div class="card text-center m-2">
+                        <div class="card-header">CPU Temp</div>
+                        <div class="card-body"><canvas id="cpu_temp_canvas"></canvas></div> 
+                        <div class="card-footer" id="cpu_temp_txt"></div>
+                 </div>
+                 <div class="card text-center m-2">
+                        <div class="card-header">CPU Usage</div>
+                        <div class="card-body"><canvas id="cpu_usage_canvas"></canvas></div> 
+                        <div class="card-footer" id="cpu_usage_txt"></div>
+                 </div>
+        </div>
         
-        <div class="card mw-25">
-                <div class="card-header">CPU Temp</div>
-                <div class="card-body"><canvas id="foo"></canvas></div> 
-                <div class="card-footer" id="cpu_temp_txt"></div>
-         </div>
 
          <div class="border border-success rounded-3 m-3 p-2 w-80" id="activity"></div>
 

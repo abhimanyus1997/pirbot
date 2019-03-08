@@ -27,45 +27,51 @@
     <!-- Path to your custom app styles-->
     <link href="css/style.css">
 </head>
+
 <body>
-        <body>
-                <div>
-                    <!--Navigation Bar-->
-                    <nav class="navbar navbar-dark" style="background-color: #37474F;">
-                        <a class="navbar-brand" href="#" style="font-family:'happyFont',monospace">Dashboard</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                                <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
-                                <a class="nav-item nav-link" href="raspberry.html" >Raspberry Pi Client</a>
-                                <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
-                                <a class="nav-item nav-link" href="image.html">Camera</a>
-                                <a class="nav-item nav-link" href="about.html">About Us</a>
-                            </div>
-                        </div>
-                    </nav>
 
-    
-    <div class="text-center">
-        <h2>Video Streaming</h2>
-        <img src="" id="streamImg" class="img-fluid rounded mx-auto w-80 h-80" alt="Video Player" style="width:100%" alt="No Signal"></img>
-    </div>
+    <body>
+        <div>
+            <!--Navigation Bar-->
+            <nav class="navbar navbar-dark" style="background-color: #37474F;">
+                <a class="navbar-brand" href="#" style="font-family: 'Major Mono Display', monospace;">Dashboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="raspberry.html">Raspberry Pi Client</a>
+                        <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
+                        <a class="nav-item nav-link" href="image.html">Camera</a>
+                        <a class="nav-item nav-link" href="about.html">About Us</a>
+                    </div>
+                </div>
+            </nav>
 
-    <fieldset class="border m-2 p-3">
-            <legend class="w-auto">Streaming Options</legend>
-            <div class="container">
-                <div class="form-group"><label for="hostip">Server Hostname/IP:&nbsp;</label><input type="text" id="hostip" placeholder="Enter IP Address of Raspberry pi" name="hostip" class="form-control" value="rpi"><br></div>
-                <div class="form-group"><label for="cam_port">Streaming Port:&nbsp;</label><input type="text" id="cam_port" placeholder="Enter Video Streaming Port" name="cam_port" class="form-control" value="9090"><br></div>
-                <div class="form-group"><button id="stream" type="button" class="btn btn-primary" onclick="streaming()">Stream</button>
+
+            <div class="text-center">
+                <h2>Video Streaming</h2>
+                <img src="" id="streamImg" class="img-fluid rounded mx-auto w-80 h-80" alt="Video Player" style="width:100%"
+                    alt="No Signal"></img>
             </div>
-    </fieldset>
-    
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
-    <script type="text/javascript" src="js/camera.js"></script>
 
-</body>
+            <fieldset class="border m-2 p-3">
+                <legend class="w-auto">Streaming Options</legend>
+                <div class="container">
+                    <div class="form-group"><label for="hostip">Server Hostname/IP:&nbsp;</label><input type="text" id="hostip"
+                            placeholder="Enter IP Address of Raspberry pi" name="hostip" class="form-control" value="rpi"><br></div>
+                    <div class="form-group"><label for="cam_port">Streaming Port:&nbsp;</label><input type="text" id="cam_port"
+                            placeholder="Enter Video Streaming Port" name="cam_port" class="form-control" value="9090"><br></div>
+                    <div class="form-group"><button id="stream" type="button" class="btn btn-primary" onclick="streaming()">Stream</button>
+                    </div>
+            </fieldset>
+
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript" src="js/my-app.js"></script>
+            <script type="text/javascript" src="js/camera.js"></script>
+
+    </body>
+
 </html>
