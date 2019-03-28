@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Raspberry Pi Control Panel</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap: ws: https://ssl.gstatic.com;img-src * 'self' data: content:;style-src 'self' https://fonts.googleapis.com 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <!-- Allow everything but only from the same origin and fonts.googleapis.com -->
+    <!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self' fonts.googleapis.com"> -->
+    <meta name="viewport" content="minimal-ui,user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,
+    width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <!-- <meta name="theme-color" content="#2196f3"> -->
+    <link rel="icon" href="res/favicon.png" type="image/png">
+
+    <!-- Path to Framework7 Library CSS -->
+    <!-- <link rel="stylesheet" href="lib/framework7/css/framework7.min.css"> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="lib/popper.js/dist/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Path to your custom app styles-->
+    <link href="css/style.css">
+    <script type="text/javascript" src="lib/nipplejs/dist/nipplejs.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Major+Mono+Display');
+    </style>
+</head>
+
+<body>
+    <div>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-dark w-100" style="background-color: #37474F;">
+            <a class="navbar-brand" href="#" style="font-family: 'Major Mono Display', monospace;">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="raspberry.html">Raspberry Pi Client</a>
+                    <a class="nav-item nav-link" href="mqtt.html">MQTT Terminal</a>
+                    <a class="nav-item nav-link" href="image.html">Camera</a>
+                    <a class="nav-item nav-link" href="about.html">About Us</a>
+                </div>
+            </div>
+        </nav>
+
+        <centre>
+            <!--  Virual Joystick -->
+            <div id="zone_joystick" style="height:150px; width:75%" class="border border-black"></div>
+
+            <script>
+                var semi = nipplejs.create({
+                    zone: document.getElementById('zone_joystick'),
+                    mode: 'static',
+                    position: {left: '25%', top: '25%'},
+                    color: 'black'
+                });
+            </script>
+
+            <!-- Speed control -->
+            <div class="col-md-3 col-sm-3 mt-4">
+                <label for="customRange1">Speed Control</label>
+                <input type="range" class="custom-range w-75" id="customRange1">
+                <p id="demo"></p>
+            </div>
+        </centre>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
+        <script type="text/javascript" src="js/my-app.js"></script>
+        <script type="text/javascript" src="js/mqtt.js"></script>
+
+</body>
+
+</html>

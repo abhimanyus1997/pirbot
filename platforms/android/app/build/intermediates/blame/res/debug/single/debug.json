@@ -1,27 +1,35 @@
 [
     {
-        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
-        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\icon.png"
-    },
-    {
         "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xhdpi_screen.png.flat",
         "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\drawable-land-xhdpi\\screen.png"
+    },
+    {
+        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_ic_launcher.png.flat",
+        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxxhdpi_screen.png.flat",
         "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\drawable-port-xxxhdpi\\screen.png"
     },
     {
-        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_icon.png.flat",
-        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-xhdpi\\icon.png"
+        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-xxhdpi_screen.png.flat",
         "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxhdpi\\screen.png"
     },
     {
-        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_icon.png.flat",
-        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\icon.png"
+        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-xxhdpi_screen.png.flat",
@@ -36,16 +44,8 @@
         "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\drawable-land-ldpi\\screen.png"
     },
     {
-        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_icon.png.flat",
-        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-mdpi\\icon.png"
-    },
-    {
         "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_config.xml.flat",
         "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\xml\\config.xml"
-    },
-    {
-        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_icon.png.flat",
-        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-ldpi\\icon.png"
     },
     {
         "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-mdpi_screen.png.flat",
@@ -72,7 +72,7 @@
         "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\drawable-port-xhdpi\\screen.png"
     },
     {
-        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_icon.png.flat",
-        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\icon.png"
+        "merged": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\Study\\8TH SEM\\BTP_3\\app\\pir\\platforms\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }
 ]

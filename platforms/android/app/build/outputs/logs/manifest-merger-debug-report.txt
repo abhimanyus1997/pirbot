@@ -4,7 +4,7 @@ ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\Android
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
-MERGED from [:CordovaLib] D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
+MERGED from [:CordovaLib] D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:1-27:12
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:2:1-14:12
@@ -45,13 +45,13 @@ ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\Android
 application
 ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:5-12:19
 	android:supportsRtl
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:121-147
 	android:label
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:88-120
 	android:hardwareAccelerated
 		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
+		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:5:53-87
 activity#com.abhimanyus1997.pir.MainActivity
 ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
@@ -66,7 +66,7 @@ ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\Android
 		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
 	android:name
 		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
 	android:label
 		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
@@ -81,8 +81,8 @@ ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\Android
 uses-sdk
 ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
-MERGED from [:CordovaLib] D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\CordovaLib\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:5-44
 INJECTED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:13:5-74
 	android:targetSdkVersion
 		ADDED from D:\Study\8TH SEM\BTP_3\app\pir\platforms\android\app\src\main\AndroidManifest.xml:13:42-71

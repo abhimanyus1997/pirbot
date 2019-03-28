@@ -148,15 +148,18 @@ interface Framework7 extends Framework7Class<Framework7Events> {
   /** Load modules */
   loadModules(modules: any[]) : Promise<any>
 }
+interface Events extends Framework7EventsClass<Framework7Events> {}
 
 declare class Framework7 implements Framework7 {
   constructor(parameters?: Framework7Params);
 
   static use(plugin : Framework7Plugin) : void;
+  static use(plugins : Framework7Plugin[]) : void;
   static device: Device;
   static request: Request;
   static support: Support;
   static utils: Utils;
+  static Events: Events;
 }
 
 export default Framework7;

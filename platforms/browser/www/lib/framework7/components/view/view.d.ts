@@ -28,7 +28,7 @@ export namespace View {
   }
   interface Parameters {
     /**	View name. If view was created with name, then it may be accessed via app.views.[name] */
-    name?: boolean
+    name?: string
     /**	Specify whether this is View is main or not. If not passed then will be determined based on whether its element has view-main class or not */
     main?: boolean
     /**	Set to false to disable view router */
@@ -52,7 +52,7 @@ export namespace View {
     /**	Delay (in ms) after new page will be loaded and inserted to DOM and before it will be transitioned. Can be increased a bit to improve performance. Will have effect only under iOS theme */
     iosPageLoadDelay?: number
     /**	Delay (in ms) after new page will be loaded and inserted to DOM and before it will be transitioned. Can be increased a bit to improve performance. Will have effect only under MD theme */
-    materialPageLoadDelay?: number
+    mdPageLoadDelay?: number
     /**	When enabled then router will pass route url query to request url query (for url, templateUrl and componentUrl route properties) */
     passRouteQueryToRequest?: boolean
     /**	When enabled then router will pass current route parameters to request url query (for url, templateUrl and componentUrl route properties) */

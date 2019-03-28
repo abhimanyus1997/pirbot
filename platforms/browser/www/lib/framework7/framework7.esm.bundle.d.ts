@@ -1,6 +1,6 @@
 import Template7 from 'template7';
 import Dom7 from 'dom7';
-import Framework7 from './components/app/app-class';
+import Framework7 from './components/app/app-class'
 
 // Helpers
 import Request from './utils/request';
@@ -14,6 +14,7 @@ import {Device as DeviceNamespace} from './modules/device/device';
 import {Request as RequestNamespace} from './modules/request/request';
 import {Resize as ResizeNamespace} from './modules/resize/resize';
 import {Router as RouterNamespace} from './modules/router/router';
+import {ServiceWorker as ServiceWorkerNamespace} from './modules/service-worker/service-worker';
 import {Support as SupportNamespace} from './modules/support/support';
 import {Touch as TouchNamespace} from './modules/touch/touch';
 import {Utils as UtilsNamespace} from './modules/utils/utils';
@@ -45,6 +46,7 @@ import {Link as LinkNamespace} from './components/link/link';
 import {List as ListNamespace} from './components/list/list';
 import {ListIndex as ListIndexNamespace} from './components/list-index/list-index';
 import {LoginScreen as LoginScreenNamespace} from './components/login-screen/login-screen';
+import {Menu as MenuNamespace} from './components/menu/menu';
 import {Messagebar as MessagebarNamespace} from './components/messagebar/messagebar';
 import {Messages as MessagesNamespace} from './components/messages/messages';
 import {Modal as ModalNamespace} from './components/modal/modal';
@@ -63,6 +65,7 @@ import {Radio as RadioNamespace} from './components/radio/radio';
 import {Range as RangeNamespace} from './components/range/range';
 import {Searchbar as SearchbarNamespace} from './components/searchbar/searchbar';
 import {Sheet as SheetNamespace} from './components/sheet/sheet';
+import {Skeleton as SkeletonNamespace} from './components/skeleton/skeleton';
 import {SmartSelect as SmartSelectNamespace} from './components/smart-select/smart-select';
 import {Sortable as SortableNamespace} from './components/sortable/sortable';
 import {Statusbar as StatusbarNamespace} from './components/statusbar/statusbar';
@@ -98,6 +101,9 @@ declare module './components/app/app-class' {
   interface Framework7Class<Events> extends RouterNamespace.AppMethods{}
   interface Framework7Params extends RouterNamespace.AppParams{}
   interface Framework7Events extends RouterNamespace.AppEvents{}
+  interface Framework7Class<Events> extends ServiceWorkerNamespace.AppMethods{}
+  interface Framework7Params extends ServiceWorkerNamespace.AppParams{}
+  interface Framework7Events extends ServiceWorkerNamespace.AppEvents{}
   interface Framework7Class<Events> extends SupportNamespace.AppMethods{}
   interface Framework7Params extends SupportNamespace.AppParams{}
   interface Framework7Events extends SupportNamespace.AppEvents{}
@@ -185,6 +191,9 @@ declare module './components/app/app-class' {
   interface Framework7Class<Events> extends LoginScreenNamespace.AppMethods{}
   interface Framework7Params extends LoginScreenNamespace.AppParams{}
   interface Framework7Events extends LoginScreenNamespace.AppEvents{}
+  interface Framework7Class<Events> extends MenuNamespace.AppMethods{}
+  interface Framework7Params extends MenuNamespace.AppParams{}
+  interface Framework7Events extends MenuNamespace.AppEvents{}
   interface Framework7Class<Events> extends MessagebarNamespace.AppMethods{}
   interface Framework7Params extends MessagebarNamespace.AppParams{}
   interface Framework7Events extends MessagebarNamespace.AppEvents{}
@@ -239,6 +248,9 @@ declare module './components/app/app-class' {
   interface Framework7Class<Events> extends SheetNamespace.AppMethods{}
   interface Framework7Params extends SheetNamespace.AppParams{}
   interface Framework7Events extends SheetNamespace.AppEvents{}
+  interface Framework7Class<Events> extends SkeletonNamespace.AppMethods{}
+  interface Framework7Params extends SkeletonNamespace.AppParams{}
+  interface Framework7Events extends SkeletonNamespace.AppEvents{}
   interface Framework7Class<Events> extends SmartSelectNamespace.AppMethods{}
   interface Framework7Params extends SmartSelectNamespace.AppParams{}
   interface Framework7Events extends SmartSelectNamespace.AppEvents{}
@@ -295,5 +307,6 @@ declare module './components/app/app-class' {
   interface Framework7Events extends VirtualListNamespace.AppEvents{}
 }
 
-export { Request, Utils, Support, Device, Template7, Dom7 };
+export { Request, Utils, Support, Device };
+export { Template7, Dom7 };
 export default Framework7;
