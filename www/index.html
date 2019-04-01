@@ -27,6 +27,8 @@
     <script src="lib/popper.js/dist/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Feather icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <!-- Path to your custom app styles-->
     <link href="css/style.css">
 
@@ -56,79 +58,9 @@
             </div>
         </nav>
 
-        <style>
-            /* Pulsating Button */
-            .container {
-                width: 200px;
-                height: 100%;
-                margin: 10% auto 0;
-                -webkit-perspective: 1000;
-                -webkit-backface-visibility: hidden;
-                background: #fff;
-            }
+        <!-- CONTROLLER BELOW -->
 
-            .pulse-button {
-                position: relative;
-                top: 50%;
-                left: 50%;
-                margin-left: -50px;
-                margin-top: -50px;
-                display: block;
-                width: 100px;
-                height: 100px;
-                font-size: 1.3em;
-                font-weight: light;
-                font-family: 'Trebuchet MS', sans-serif;
-                text-transform: uppercase;
-                text-align: center;
-                line-height: 100px;
-                letter-spacing: -1px;
-                color: white;
-                border: none;
-                border-radius: 50%;
-                background: #5a99d4;
-                cursor: pointer;
-                box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
-                -webkit-animation: pulse 1.5s infinite;
-            }
-
-            .pulse-button:hover {
-                -webkit-animation: none;
-            }
-
-            @-webkit-keyframes pulse {
-                0% {
-                    -moz-transform: scale(0.9);
-                    -ms-transform: scale(0.9);
-                    -webkit-transform: scale(0.9);
-                    transform: scale(0.9);
-                }
-
-                70% {
-                    -moz-transform: scale(1);
-                    -ms-transform: scale(1);
-                    -webkit-transform: scale(1);
-                    transform: scale(1);
-                    box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
-                }
-
-                100% {
-                    -moz-transform: scale(0.9);
-                    -ms-transform: scale(0.9);
-                    -webkit-transform: scale(0.9);
-                    transform: scale(0.9);
-                    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
-                }
-            }
-        </style>
-
-
-        <div class='container'>
-            <span class='pulse-button'>Start</span>
-        </div>
-
-
-        <div class="col-md-3 col-sm-2">
+        <!--         <div class="col-md-3 col-sm-2">
             <table class="table table-borderless">
                 <tbody>
                     <tr>
@@ -153,13 +85,73 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> -->
 
-        <div class="col-md-3 col-sm-2">
-            <label for="customRange1">Speed Control</label>
-            <input type="range" class="custom-range" id="customRange1" data-toggle="tooltip">
+        <div class="container mt-4 mb-4">
+            <div class="row">
+                <div class="col-xs-3 col-2 mt-2 ml-1"><button type="button" class="btn btn-warning btn-circle btn-xl"><img src="img/outline-keyboard_arrow_up-24px.svg" alt="↑"></button></div>
+                <div class="col-xs-3 col-2 mt-2 ml-1"></div>
+                <div class="col-xs-5 col-3 mt-2"><button type="button" class="btn btn-block btn-raised ripple-effect btn-danger ">STOP</button></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 col-2 mt-1 mb-2 ml-1"><button type="button" class="btn btn-warning btn-circle btn-xl"><img src="img/outline-keyboard_arrow_down-24px.svg" alt="↓"></button></div>
+                <div class="col-xs-3 col-2 mt-2 ml-1"></div>
+                <div class="col-xs-5 col-4 mt-2"><button type="button" class="btn btn-block btn-raised ripple-effect btn-success">START</button></div>
+            </div>
+        </div>
+        <hr> <hr>
+        <div class="col-md-3 col-sm-2 mx-auto">
+            <label for="customRange1">PWM Speed Control</label>
+            <input type="range" class="custom-range" id="customRange1" data-toggle="tooltip" min="0" max="1750" step="50">
             <p id="demo"></p>
         </div>
+
+
+        <!-- SENSOR DATA -->
+        <br>
+        <div class="border border-primary rounded-3 mt-4 mx-2 p-2 w-80" id="sensor">
+            <code>Data Streaming</code>
+            <br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Sensor</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Warning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Obstacle Sensor</td>
+                        <td>0 m</td>
+                        <td><button type="button"
+                                class="btn btn-circle btn-flat btn-success btn-xs disabled nohover">ok</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Linear Acceleration</td>
+                        <td>0 m/s<sup>2</sup></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Gyroscopic Reading</td>
+                        <td>0</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
+
+
         <script type="text/javascript" src="cordova.js"></script>
         <!-- <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script> -->
         <script type="text/javascript" src="js/my-app.js"></script>
