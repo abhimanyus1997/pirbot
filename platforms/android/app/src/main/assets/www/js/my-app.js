@@ -1,19 +1,21 @@
 $(document).ready(function () {
-    var slider = document.getElementById("customRange1");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value; // Display the default slider value
+  var slider = document.getElementById("pwmRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value; // Display the default slider value
 
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function () {
-        output.innerHTML = this.value;
-        $('#customRange1').tooltip({
-            title: this.value
-        });
-        $('#customRange1').tooltip('update');
-    };
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+    $('#pwmRange').tooltip({
+      title: this.value
+    });
+    $('#pwmRange').tooltip('update');
+  };
 });
 
-var app = new Framework7({
+
+
+/* var app = new Framework7({
     // App root element
     root: '#app',
     // App Name
@@ -34,4 +36,4 @@ var app = new Framework7({
     // ... other parameters
   });
   
-  var mainView = app.views.create('.view-main');
+  var mainView = app.views.create('.view-main'); */

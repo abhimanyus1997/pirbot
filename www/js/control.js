@@ -20,225 +20,185 @@ var app = {
   },
   // Update DOM on a Received Event
   receivedEvent: function (id) {
-    document.getElementById("connect_btn").addEventListener('click', function (ev) {
-      //RANDOM CLIENT_ID GENERATOR
-      if (document.getElementById("client_txt").value == "") {
-        client_userID = "pirAppID-"+Math.floor((Math.random() * 100) + 1);
-      } else {
-        client_userID = document.getElementById("client_txt").value;
-      }
-
-      //CONNECTION EVT
+    document.getElementById("motorStartBtn").addEventListener('touchend', function (ev) {
       cordova.plugins.CordovaMqTTPlugin.connect({
-        url: "tcp://enchantress", //a public broker used for testing purposes only. Try using a self hosted broker for production.
+        url: "tcp://rpi", //a public broker used for testing purposes only. Try using a self hosted broker for production.
         port: 1883,
-        clientId: client_userID,
+        clientId: "pirAppClient",
         success: function (s) {
           connect = true;
           console.log(JSON.stringify(s));
-          alert("Connection Successful \n\t MQTT Address: mqtt://" + document.getElementById("ip_txt").value + ":" + document.getElementById("port_txt").value+"\n\tClientID: "+client_userID);
-          receivemydata();
+          alert("Motor Connected");
+          /*  document.getElementById("connect").style.display = "none";
+           document.getElementById("disconnect").style.display = "block";
+           document.getElementById("activity").innerHTML += "--> Success: you are connected to, "+document.getElementById("url").value+":"+document.getElementById("port").value+"<br>" */
         },
         error: function (e) {
           connect = false;
-          alert("--> Error: something is wrong,\n " + JSON.stringify(e) + "<br>");
-          alert("err!! something is wrong. check the console");
+          /*                     document.getElementById("activity").innerHTML += "--> Error: something is wrong,\n "+JSON.stringify(e)+"<br>";
+                              document.getElementById("connect").style.display = "block";
+                              document.getElementById("disconnect").style.display = "none"; */
+          alert("ERROR:Motor Connection Error!");
           console.log(e);
         },
         onConnectionLost: function () {
           connect = false;
-          alert("--> You got disconnected");
+          /*                     document.getElementById("activity").innerHTML += "--> You got disconnected";
+                              document.getElementById("connect").style.display = "block";
+                              document.getElementById("disconnect").style.display = "none"; */
+          alert("ERROR:Motor Connection Lost");
         }
       });
-
-      //PUBLISHING DATA ON SUCCESSFUL CONNECTION to "test" topic
-      function sendmydata() {
-        if (!connect) {
-          alert("First establish connection then try to publish");
-        } else {
-          cordova.plugins.CordovaMqTTPlugin.publish({
-            topic: "test",
-            payload: "Data sent via App",
-            qos: 0,
-            retain: false,
-            success: function (s) {
-              alert("Success: you have published to the topic, " + "test" + "<br>");
-            },
-            error: function (e) {
-              alert("--> Error: something is wrong, " + e + "<br>");
-              console.log(e);
-            }
-          });
-        }
-      }
-
-      //SUBSCRIBING TO TOPIC "rpi/data"
-      function receivemydata(ev) {
-        //creating null gauge
-        var opts = {
-          angle: 0.01, /// The span of the gauge arc
-          lineWidth: 0.44, // The line thickness
-          radiusScale: 1, 
-          pointer: {
-              length: 0.65, // Relative to gauge radius
-              strokeWidth: 0.025, // The thickness
-              color: '#333333'// Fill color
+    });
+    document.getElementById("motorStopBtn").addEventListener('touchend', function (e) {
+      if (!connect) {
+        alert("Error: Push Stop Motor Button");
+      } else {
+        cordova.plugins.CordovaMqTTPlugin.publish({
+          topic: "esp32/control",
+          payload: "w-" + document.getElementById("pwmRange").value + "-0",
+          qos: 0,
+          retain: false,
+          success: function (s) {
+            /* document.getElementById("activity").innerHTML += "--> Success: you have published to the topic, "+document.getElementById("topic_sub").value+"<br>"; */
           },
-          limitMax: 100,
-          colorStart: '#6FADCF', // Colors
-          colorStop: '#00695c', // just experiment with them
-          strokeColor: '#E0E0E0', // to see which ones work best for you
-          generateGradient: true,
-          highDpiSupport: true,     // High resolution support
-      };
-      
-      var target = document.getElementById('cpu_temp_canvas'); // your canvas element
-      var gauge = new Gauge(target).setOptions(opts); // create gauge!
-      gauge.maxValue = 50 ; // set max gauge value
-      gauge.setMinValue(20); // set min value
-      gauge.set(20); // set actual value
+          error: function (e) {
+            /* document.getElementById("activity").innerHTML += "--> Error: something is wrong, "+e+"<br>"; */
+            alert("Error: Unable to Send Commands");
+            console.log(e);
+          }
+        });
 
-      var gauge2 = new Gauge(document.getElementById('cpu_usage_canvas')).setOptions(opts); // create gauge!
-      gauge2.maxValue = 100 ; // set max gauge value
-      gauge2.setMinValue(0); // set min value
-      gauge2.set(0); // set actual value
-      
+        //DISCONNECT AFTER STOPPING
+        cordova.plugins.CordovaMqTTPlugin.disconnect({
+          success: function (s) {
+            connect = false;
+            /*   document.getElementById("connect").style.display = "block";
+              document.getElementById("disconnect").style.display = "none";
+              document.getElementById("activity").innerHTML += "--> Success: you are now disconnected"+"<br>" */
+            alert("Motor Disconnected");
+          },
+          error: function (e) {
+            /*                 document.getElementById("activity").innerHTML += "--> Error: something is wrong, "+e+"<br>";
+                            document.getElementById("connect").style.display = "none";
+                            document.getElementById("disconnect").style.display = "block"; */
+            alert("ERROR: Motor Disconnection Error");
+            console.log(e);
+          }
+        });
 
-        alert("Subscribing");
-        if (!connect) {
-          alert("First establish connection then try to subscribe");
-        } else {
-          cordova.plugins.CordovaMqTTPlugin.subscribe({
-            topic: "rpi/data",
-            qos: 0,
-            success: function (s) {
-              alert("Subscribed");
-              console.log("--> Success: you are subscribed to the topic, rpi/data \n");
-              //get your payload here
-              //MESAGE RECIVING
-              cordova.plugins.CordovaMqTTPlugin.listen("rpi/data", function (payload, params, topic, topic_pattern) {
-                //params will be an empty object if topic pattern is NOT used. 
-                console.log("Receiving Payload Value: " + payload);
-                document.getElementById("activity").innerHTML =  "<h6>Streaming Data:</h6> <code> ["+payload+"] </code>";
-                var rpiData = payload.split(",");
-                document.getElementById("cpu_temp_txt").innerHTML =  rpiData[0]+" &#8451;";
-                document.getElementById("cpu_usage_txt").innerHTML =  rpiData[1]+" %";
-                gauge.set(rpiData[0]);
-                gauge2.set(rpiData[1]);
-              });
-            },
-            error: function (e) {
-              document.getElementById("activity").innerHTML += "--> Error: something is wrong when subscribing to this topic, " + e + "<br>";
-              alert("Receiving Failure");
-              console.log(e);
-            }
-          });
-        }
       }
-
-
-
-
-
-
-
-
-
-
-
     });
 
-    /*  //DISCONNECT EVT
-     document.getElementById("disconnect_btn").addEventListener('touchend', function (e) {
-       document.getElementById("connect_btn").style.display = "block";
-       document.getElementById("disconnect_btn").style.display = "none";
-       cordova.plugins.CordovaMqTTPlugin.disconnect({
-         success: function (s) {
-           connect = false;
-           document.getElementById("connect_btn").style.display = "block";
-           document.getElementById("disconnect_btn").style.display = "none";
-           alert("--> Success: you are now disconnected" + "<br>");
-         },
-         error: function (e) {
-           alert("--> Error: something is wrong, " + e + "<br>");
-           document.getElementById("connect_btn").style.display = "none";
-           document.getElementById("disconnect_btn").style.display = "block";
-           //alert("err!! something is wrong. check the console")
-           console.log(e);
-         }
-       });
-     }); */
+    /*         document.getElementById("subscribe").addEventListener('touchend',function(ev){
+                if (!connect) {
+                  alert("First establish connection then try to subscribe");
+                } else {
+                  cordova.plugins.CordovaMqTTPlugin.subscribe({
+                    topic:document.getElementById("topic_sub").value,
+                    qos:0,
+                    success:function(s){
+                      document.getElementById("subscribe").style.display = "none";
+                      document.getElementById("unsubscribe").style.display = "block";
+                      document.getElementById("activity").innerHTML += "--> Success: you are subscribed to the topic, "+document.getElementById("topic_sub").value+"<br>";
+                      //get your payload here
+                      //Deprecated method
+                      document.addEventListener(document.getElementById("topic_sub").value,function (e) {
+                          e.preventDefault();
+
+                          document.getElementById("activity").innerHTML += "--> Payload for"+e.topic+" topic: "+JSON.stringify(e.payload)+"<br>";
+                      });
+
+                      cordova.plugins.CordovaMqTTPlugin.listen(document.getElementById("topic_sub").value,function (payload,params,topic,topic_pattern) {
+                          //params will be an empty object if topic pattern is NOT used. 
+                          document.getElementById("activity").innerHTML += "--> Payload for"+topic+" topic: "+JSON.stringify(payload)+"<br>";
+                      });
+                    },
+                    error:function(e){
+                      document.getElementById("activity").innerHTML += "--> Error: something is wrong when subscribing to this topic, "+e+"<br>";
+                      document.getElementById("subscribe").style.display = "block";
+                      document.getElementById("unsubscribe").style.display = "none";
+                      //alert("err!! something is wrong. check the console")
+                      console.log(e);
+                    }
+                  });
+                }
+            });
+            document.getElementById("unsubscribe").addEventListener('touchend',function(ev){
+                cordova.plugins.CordovaMqTTPlugin.unsubscribe({
+                  topic:document.getElementById("topic_sub").value,
+                  success:function(s){
+                    document.removeEventListener(document.getElementById("topic_sub").value);
+                    document.getElementById("unsubscribe").style.display = "none";
+                    document.getElementById("subscribe").style.display = "block";
+                    document.getElementById("activity").innerHTML += "--> Success: you are unsubscribed to the topic, "+document.getElementById("topic_sub").value+"<br>";
+                    document.getElementById("topic_sub").value = "";
+                  },
+                  error:function(e){
+                    document.getElementById("activity").innerHTML += "--> Error: something is wrong, "+e+"<br>";
+                    document.getElementById("subscribe").style.display = "block";
+                    document.getElementById("unsubscribe").style.display = "none";
+                    //alert("err!! something is wrong. check the console")
+                    console.log(e);
+                  }
+                });
+            }); */
+
+
+    //FWD Button
+    document.getElementById("fwdBtn").addEventListener('touchend', function (ev) {
+      if (!connect) {
+        alert("Error: Push Start Motor Button");
+      } else {
+        cordova.plugins.CordovaMqTTPlugin.publish({
+          topic: "esp32/control",
+          payload: "w-" + document.getElementById("pwmRange").value + "-1",
+          qos: 0,
+          retain: false,
+          success: function (s) {
+            /* document.getElementById("activity").innerHTML += "--> Success: you have published to the topic, "+document.getElementById("topic_sub").value+"<br>"; */
+          },
+          error: function (e) {
+            /* document.getElementById("activity").innerHTML += "--> Error: something is wrong, "+e+"<br>"; */
+            alert("Error: Unable to Send Commands");
+            console.log(e);
+          }
+        });
+      }
+    });
+
+    //BWD Button
+    document.getElementById("bckBtn").addEventListener('touchend', function (ev) {
+      if (!connect) {
+        alert("Error: Push Start Motor Button");
+      } else {
+        cordova.plugins.CordovaMqTTPlugin.publish({
+          topic: "esp32/control",
+          payload: "s-" + document.getElementById("pwmRange").value + "-1",
+          qos: 0,
+          retain: false,
+          success: function (s) {
+            /* document.getElementById("activity").innerHTML += "--> Success: you have published to the topic, "+document.getElementById("topic_sub").value+"<br>"; */
+          },
+          error: function (e) {
+            /* document.getElementById("activity").innerHTML += "--> Error: something is wrong, "+e+"<br>"; */
+            alert("Error: Unable to Send Commands");
+            console.log(e);
+          }
+        });
+      }
+    });
+
+
+    console.log('Received Event: ' + id);
+  },
+  append: function (id, s) {
+    // it is just a string append function. Nothing to do with the MQTT functions
+    var node = document.createElement("p"); // Create a <li> node
+    var textnode = document.createTextNode(s); // Create a text node
+    node.appendChild(textnode); // Append the text to <li>
+    document.getElementById(id).appendChild(node); // Append <li> to <ul> with id="myList"
   }
 };
 
-
 app.initialize();
-
-
-
-/* // example.js file
-// Wait for device API libraries to load
-//
-function onLoad() {
-  alert("onLoad evt");
-  console.log("Event Triggered: onLoad");
-  document.addEventListener("deviceready", onDeviceReady, false);
-  document.addEventListener("backbutton", onBackKeyDown, false);
-  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
-}
-
-// device APIs are available
-//
-function onDeviceReady() {
-  alert("app ready");
-  console.log("Event Triggered: DeviceReady");
-  document.addEventListener("pause", onPause, false);
-  document.addEventListener("resume", onResume, false);
-  document.addEventListener("menubutton", onMenuKeyDown, false);
-  document.addEventListener("backbutton", onBackKeyDown, false);
-  document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
-  document.getElementById("connect").addEventListener('touchend',onMqttBtnClick());
-
-  function onMqttBtnClick(){
-    alert("Btn CLick");
-    console.log("MQTT Connection Initiated");
-  
-    ip = document.getElementById('ip_txt').Value;
-  }
-  // Add similar listeners for other events
-}
-
-
-
-
-function onPause() {
-  alert("app paused");
-  console.log("Event Triggered: Paused");
-  // Handle the pause event
-}
-
-function onResume() {
-  alert("app resume");
-  console.log("Event Triggered: Resume");
-  // Handle the resume event
-}
-
-function onVolumeUpKeyDown() {
-  alert("app onVolumeUpKeyDown");
-  console.log("Event Triggered: onVolumeUpKeyDown Evt");
-  // Handle the menubutton event
-}
-
-function onMenuKeyDown() {
-  alert("app menubutton");
-  console.log("Event Triggered: Menukey Evt");
-  // Handle the menubutton event
-}
-
-function onBackKeyDown() {
-  alert("app Backbutton presseed");
-  console.log("Event Triggered: Backbutton Evt");
-  // Handle the menubutton event
-}
-
-// Add similar event handlers for other events */
