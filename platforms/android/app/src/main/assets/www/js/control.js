@@ -20,9 +20,10 @@ var app = {
   },
   // Update DOM on a Received Event
   receivedEvent: function (id) {
+    host=prompt("Enter MQTT Server","enchantress");
     document.getElementById("motorStartBtn").addEventListener('touchend', function (ev) {
       cordova.plugins.CordovaMqTTPlugin.connect({
-        url: "tcp://rpi", //a public broker used for testing purposes only. Try using a self hosted broker for production.
+        url: "tcp://"+host, //a public broker used for testing purposes only. Try using a self hosted broker for production.
         port: 1883,
         clientId: "pirAppClient",
         success: function (s) {
